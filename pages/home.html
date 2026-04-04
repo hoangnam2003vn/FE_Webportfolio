@@ -21,34 +21,35 @@
     <!-- ==================== Header / Navbar (sticky) ==================== -->
     <header class="header header--home">
       <div class="container header__inner">
-        <a class="navbar__logo" href="home.html">Portfolio</a>
         <nav class="navbar" aria-label="Primary">
           <input
             type="checkbox"
             class="navbar__toggle"
             id="navbar-toggle"
           />
-          <label class="navbar__toggle-label" for="navbar-toggle"
-            >Menu</label
-          >
-          <ul class="navbar__list">
-            <li class="navbar__item">
-              <a class="navbar__link" href="#">Tìm ứng viên</a>
-            </li>
-            <li class="navbar__item">
-              <a class="navbar__link" href="#">Mẫu portfolio</a>
-            </li>
-            <li class="navbar__item navbar__item--auth" data-navbar-auth>
-              <div class="navbar__auth">
-                <a class="btn btn--ghost navbar__auth-btn" href="#"
-                  >Đăng nhập</a
-                >
-                <a class="btn btn--primary navbar__auth-btn" href="#"
-                  >Đăng ký</a
-                >
-              </div>
-            </li>
-            <li class="navbar__item navbar__item--user" data-navbar-user-wrap hidden>
+          <div class="navbar__left">
+            <a class="navbar__logo" href="home.html">Portfolio</a>
+          </div>
+          <div class="navbar__center">
+            <ul class="navbar__list">
+              <li class="navbar__item">
+                <a class="navbar__link" href="#">Tìm ứng viên</a>
+              </li>
+              <li class="navbar__item">
+                <a class="navbar__link" href="#">Mẫu portfolio</a>
+              </li>
+            </ul>
+          </div>
+          <div class="navbar__right">
+            <div class="navbar__auth" data-navbar-auth>
+              <a class="btn btn--ghost navbar__auth-btn" href="#"
+                >Đăng nhập</a
+              >
+              <a class="btn btn--primary navbar__auth-btn" href="#"
+                >Đăng ký</a
+              >
+            </div>
+            <div class="navbar__account" data-navbar-user-wrap hidden>
               <div class="navbar__user" data-navbar-user>
                 <button
                   type="button"
@@ -87,8 +88,11 @@
                   </li>
                 </ul>
               </div>
-            </li>
-          </ul>
+            </div>
+            <label class="navbar__toggle-label" for="navbar-toggle"
+              >Menu</label
+            >
+          </div>
         </nav>
       </div>
     </header>
@@ -115,6 +119,11 @@
               >Xem dự án</a
             >
           </div>
+          <p class="hero__hint">
+            <a class="hero__hint-link" href="forgot-password.html"
+              >Quên mật khẩu?</a
+            >
+          </p>
         </div>
       </section>
 
