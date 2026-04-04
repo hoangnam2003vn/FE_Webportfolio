@@ -1,0 +1,22 @@
+/* ==========================================================================
+   Entry stylesheet — import theo thứ tự: base → layout → components → pages
+   ========================================================================== */
+
+/* --- Base --- */
+@import url("base/reset.css");
+@import url("base/variables.css");
+@import url("base/typography.css");
+
+/* --- Layout --- */
+@import url("layout/grid.css");
+@import url("layout/header.css");
+@import url("layout/footer.css");
+
+/* --- Components --- */
+@import url("components/button.css");
+@import url("components/card.css");
+@import url("components/navbar.css");
+@import url("components/animations.css");
+
+/* --- Pages --- */
+@import url("pages/home.css");

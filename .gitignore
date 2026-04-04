@@ -1,0 +1,24 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Node (nếu sau này dùng)
+node_modules/
+
+# Env
+.env
+
+# Build
+dist/
+build/
+
+# IDE
+.vscode/
+.idea/
+
+# Mac
+.AppleDouble
+.LSOverride

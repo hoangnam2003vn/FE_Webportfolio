@@ -1,0 +1,164 @@
+/* ==========================================================================
+   Motion — scroll reveal, stagger; chỉ kích hoạt khi có .js-animations (set từ JS)
+   ========================================================================== */
+
+:root {
+  --motion-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --motion-duration: 650ms;
+  --motion-stagger: 75ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .js-animations .reveal,
+  .js-animations .reveal * {
+    transition-duration: 0.01ms !important;
+    transition-delay: 0ms !important;
+    animation-duration: 0.01ms !important;
+  }
+
+  .js-animations .reveal:not(.is-visible) {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+/* --- Trạng thái ẩn ban đầu (chỉ khi đã bật JS) --- */
+.js-animations .reveal:not(.is-visible) {
+  opacity: 0;
+  transform: translate3d(0, 28px, 0);
+  will-change: opacity, transform;
+}
+
+.js-animations .reveal.is-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  transition: opacity var(--motion-duration) var(--motion-ease),
+    transform var(--motion-duration) var(--motion-ease);
+}
+
+.js-animations .reveal.is-visible {
+  will-change: auto;
+}
+
+/* Hero: chỉ stagger nội dung, không fade cả khối (tránh double motion) */
+.js-animations .hero.reveal:not(.is-visible),
+.js-animations .hero.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+  will-change: auto;
+}
+
+/* Hero: stagger nội dung */
+.js-animations .hero.reveal:not(.is-visible) .hero__inner > * {
+  opacity: 0;
+  transform: translate3d(0, 20px, 0);
+}
+
+.js-animations .hero.reveal.is-visible .hero__inner > * {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  transition: opacity 0.55s var(--motion-ease), transform 0.55s var(--motion-ease);
+}
+
+.js-animations .hero.reveal.is-visible .hero__inner > *:nth-child(1) {
+  transition-delay: calc(var(--motion-stagger) * 0);
+}
+.js-animations .hero.reveal.is-visible .hero__inner > *:nth-child(2) {
+  transition-delay: calc(var(--motion-stagger) * 1);
+}
+.js-animations .hero.reveal.is-visible .hero__inner > *:nth-child(3) {
+  transition-delay: calc(var(--motion-stagger) * 2);
+}
+.js-animations .hero.reveal.is-visible .hero__inner > *:nth-child(4) {
+  transition-delay: calc(var(--motion-stagger) * 3);
+}
+
+/* About: trái / phải + zoom nhẹ ảnh khi vào view */
+.js-animations #about.reveal:not(.is-visible) .about__text {
+  opacity: 0;
+  transform: translate3d(-32px, 0, 0);
+}
+
+.js-animations #about.reveal:not(.is-visible) .about__figure {
+  opacity: 0;
+  transform: translate3d(32px, 0, 0) scale(0.98);
+}
+
+.js-animations #about.reveal.is-visible .about__text,
+.js-animations #about.reveal.is-visible .about__figure {
+  opacity: 1;
+  transform: translate3d(0, 0, 0) scale(1);
+  transition: opacity var(--motion-duration) var(--motion-ease),
+    transform var(--motion-duration) var(--motion-ease);
+}
+
+.js-animations #about.reveal.is-visible .about__figure {
+  transition-delay: var(--motion-stagger);
+}
+
+/* Projects: stagger card */
+.js-animations #projects.reveal:not(.is-visible) .card {
+  opacity: 0;
+  transform: translate3d(0, 24px, 0) scale(0.98);
+}
+
+.js-animations #projects.reveal.is-visible .card {
+  opacity: 1;
+  transform: translate3d(0, 0, 0) scale(1);
+  transition: opacity 0.6s var(--motion-ease), transform 0.6s var(--motion-ease);
+}
+
+.js-animations #projects.reveal.is-visible .card:nth-child(1) {
+  transition-delay: 0ms;
+}
+.js-animations #projects.reveal.is-visible .card:nth-child(2) {
+  transition-delay: var(--motion-stagger);
+}
+.js-animations #projects.reveal.is-visible .card:nth-child(3) {
+  transition-delay: calc(var(--motion-stagger) * 2);
+}
+
+/* Section head: fade nhẹ */
+.js-animations .page__section.reveal:not(.is-visible) .page__section-head {
+  opacity: 0;
+  transform: translate3d(0, 16px, 0);
+}
+
+.js-animations .page__section.reveal.is-visible .page__section-head {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  transition: opacity 0.55s var(--motion-ease) 0.05s,
+    transform 0.55s var(--motion-ease) 0.05s;
+}
+
+/* Contact: slide nhẹ từ phải */
+.js-animations #contact.reveal:not(.is-visible) .page__section-head {
+  opacity: 0;
+  transform: translate3d(24px, 0, 0);
+}
+
+.js-animations #contact.reveal.is-visible .page__section-head {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  transition: opacity 0.6s var(--motion-ease), transform 0.6s var(--motion-ease);
+}
+
+/* Footer */
+.js-animations .footer.reveal:not(.is-visible) .footer__inner > * {
+  opacity: 0;
+  transform: translate3d(0, 20px, 0);
+}
+
+.js-animations .footer.reveal.is-visible .footer__inner > * {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  transition: opacity 0.55s var(--motion-ease), transform 0.55s var(--motion-ease);
+}
+
+.js-animations .footer.reveal.is-visible .footer__inner > *:nth-child(2) {
+  transition-delay: var(--motion-stagger);
+}

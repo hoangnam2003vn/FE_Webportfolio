@@ -1,0 +1,171 @@
+/* ==========================================================================
+   Home page — hero, about, projects; pattern/gradient chỉ ở trang này
+   ========================================================================== */
+
+.page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.page__main {
+  flex: 1;
+}
+
+/* --- Header: lưới nhẹ (product landing) --- */
+.header--home {
+  background-color: var(--color-bg);
+  background-image: linear-gradient(
+      var(--color-accent-grid) 1px,
+      transparent 1px
+    ),
+    linear-gradient(90deg, var(--color-accent-grid) 1px, transparent 1px);
+  background-size: 24px 24px;
+  background-position: center top;
+}
+
+/* --- Hero --- */
+.hero {
+  position: relative;
+  padding-block: var(--space-20) var(--space-16);
+  overflow: hidden;
+  color: var(--color-text-on-dark);
+  background: linear-gradient(
+    165deg,
+    var(--color-primary) 0%,
+    var(--color-primary-light) 45%,
+    #0f172a 100%
+  );
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(
+      rgba(99, 102, 241, 0.08) 1px,
+      transparent 1px
+    ),
+    linear-gradient(90deg, rgba(99, 102, 241, 0.08) 1px, transparent 1px);
+  background-size: 32px 32px;
+  mask-image: linear-gradient(to bottom, transparent, black 40%);
+  pointer-events: none;
+}
+
+.hero__inner {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  max-width: 48rem;
+  margin-inline: auto;
+}
+
+.hero__eyebrow {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: rgba(248, 250, 252, 0.85);
+  margin-bottom: var(--space-4);
+}
+
+.hero__title {
+  font-size: var(--font-size-hero);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-snug);
+  letter-spacing: -0.03em;
+  margin-bottom: var(--space-6);
+}
+
+.hero__title-line {
+  display: block;
+}
+
+.hero__title-line--accent {
+  background: linear-gradient(
+    120deg,
+    #fff 0%,
+    rgba(199, 210, 254, 0.95) 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.hero__subtitle {
+  font-size: var(--font-size-lg);
+  color: rgba(248, 250, 252, 0.82);
+  line-height: var(--line-height-relaxed);
+  margin-bottom: var(--space-8);
+  max-width: 36rem;
+  margin-inline: auto;
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  justify-content: center;
+}
+
+.hero .btn--primary {
+  background-color: var(--color-text-on-dark);
+  color: var(--color-primary);
+}
+
+.hero .btn--primary:hover {
+  background-color: #e2e8f0;
+  color: var(--color-primary);
+}
+
+/* --- Sections chung --- */
+.page__section {
+  padding-block: var(--space-16);
+}
+
+.page__section--alt {
+  background-color: var(--color-bg-subtle);
+}
+
+.page__section-head {
+  max-width: 36rem;
+  margin-bottom: var(--space-10);
+}
+
+.page__section-title {
+  margin-bottom: var(--space-3);
+}
+
+.page__section-desc {
+  font-size: var(--font-size-base);
+  color: var(--color-text-muted);
+  line-height: var(--line-height-relaxed);
+}
+
+/* --- About --- */
+.about__figure {
+  margin: 0;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  aspect-ratio: 4 / 3;
+  background: linear-gradient(
+    135deg,
+    var(--color-bg-subtle),
+    var(--color-border)
+  );
+}
+
+.about__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.about__text {
+  font-size: var(--font-size-base);
+  color: var(--color-text-muted);
+  line-height: var(--line-height-relaxed);
+}
+
+.about__text p + p {
+  margin-top: var(--space-4);
+}
