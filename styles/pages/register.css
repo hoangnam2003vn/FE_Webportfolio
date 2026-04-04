@@ -1,0 +1,478 @@
+/* ==========================================================================
+   Register — winter town photo + glassmorphism card (.page--register)
+   ========================================================================== */
+
+.page--register {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  color: var(--color-text);
+}
+
+.page--register .page__main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+/* --- Photo background + nhẹ DOF (blur + scale trong khung) --- */
+.register__bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  background: #0f172a;
+}
+
+.register__bg-frame {
+  position: absolute;
+  inset: -16px;
+  overflow: hidden;
+}
+
+.register__bg-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* 16:9 ảnh: ưu tiên vùng mái nhà / ánh đèn; trên mobile gần tỉ lệ dọc hơn */
+  object-position: center 38%;
+  display: block;
+  transform: scale(1.07);
+  filter: blur(2.5px);
+  image-rendering: auto;
+}
+
+@media (max-width: 40rem) {
+  .register__bg-img {
+    object-position: center 32%;
+  }
+}
+
+.register__bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(
+      ellipse 72% 65% at 50% 45%,
+      rgba(15, 23, 42, 0.35) 0%,
+      rgba(15, 23, 42, 0.15) 55%,
+      transparent 72%
+    ),
+    radial-gradient(
+      ellipse 100% 95% at 50% 50%,
+      transparent 20%,
+      rgba(15, 23, 42, 0.5) 100%
+    ),
+    linear-gradient(
+      195deg,
+      rgba(30, 58, 95, 0.25) 0%,
+      transparent 45%,
+      rgba(15, 23, 42, 0.55) 100%
+    );
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .register__bg-img {
+    transform: scale(1.02);
+    filter: blur(0);
+  }
+}
+
+/* --- Header --- */
+.page--register .register__header {
+  position: relative;
+  z-index: 2;
+  background: rgba(255, 255, 255, 0.78);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 4px 24px rgba(15, 23, 42, 0.07);
+}
+
+.page--register .register__header.header--scrolled {
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.page--register .navbar__logo {
+  color: #5b21b6;
+}
+
+.page--register .navbar__link {
+  color: rgba(51, 65, 85, 0.85);
+}
+
+.page--register .navbar__link:hover,
+.page--register .navbar__link:focus-visible {
+  color: #0f172a;
+}
+
+/* --- Card --- */
+.register__main {
+  position: relative;
+  z-index: 1;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(1.25rem, 4vw, 2.5rem) var(--container-padding);
+}
+
+.register {
+  width: 100%;
+  max-width: 28rem;
+  display: flex;
+  justify-content: center;
+}
+
+.register__card {
+  width: 100%;
+  padding: clamp(1.5rem, 3.5vw, 2rem) clamp(1.35rem, 3.5vw, 1.85rem);
+  border-radius: 1.25rem;
+  background: rgba(255, 255, 255, 0.88);
+  border: 1px solid rgba(255, 255, 255, 0.78);
+  box-shadow: 0 4px 6px -1px rgba(15, 23, 42, 0.1),
+    0 28px 56px -16px rgba(15, 23, 42, 0.35),
+    0 0 0 1px rgba(255, 255, 255, 0.5) inset;
+  backdrop-filter: blur(28px) saturate(1.2);
+  -webkit-backdrop-filter: blur(28px) saturate(1.2);
+}
+
+.register__avatar {
+  width: 3.25rem;
+  height: 3.25rem;
+  margin-inline: auto;
+  margin-bottom: var(--space-3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-full);
+  background: linear-gradient(135deg, #7c3aed 0%, #8b5cf6 50%, #6366f1 100%);
+  color: #faf5ff;
+  box-shadow: 0 8px 22px rgba(124, 58, 237, 0.4);
+}
+
+.register__avatar-icon {
+  display: block;
+}
+
+.register__title {
+  margin: 0 0 var(--space-2);
+  font-size: clamp(1.5rem, 4vw, 1.75rem);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: -0.02em;
+  text-align: center;
+  color: #0f172a;
+  line-height: var(--line-height-tight);
+}
+
+.register__sub {
+  margin: 0 0 var(--space-6);
+  font-size: var(--font-size-sm);
+  text-align: center;
+  color: #64748b;
+  line-height: var(--line-height-normal);
+}
+
+.register__form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.register__field {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: 0 var(--space-4);
+  min-height: 2.875rem;
+  background: rgba(248, 250, 252, 0.98);
+  border: 1px solid #e2e8f0;
+  border-radius: var(--radius-lg);
+  transition: border-color var(--transition-base), box-shadow var(--transition-base),
+    background-color var(--transition-base);
+}
+
+.register__field:focus-within {
+  border-color: rgba(124, 58, 237, 0.55);
+  box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.12);
+  background: #fff;
+}
+
+.register__field-icon {
+  flex-shrink: 0;
+  color: #94a3b8;
+  display: flex;
+}
+
+.register__input {
+  flex: 1;
+  min-width: 0;
+  padding-block: var(--space-2);
+  padding-inline: 0;
+  font-size: var(--font-size-sm);
+  font-family: inherit;
+  color: #0f172a;
+  background: transparent;
+  border: none;
+  outline: none;
+}
+
+.register__input::placeholder {
+  color: #94a3b8;
+}
+
+.register__input--password {
+  padding-right: var(--space-1);
+}
+
+.register__pw-toggle {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  margin-right: calc(var(--space-2) * -1);
+  padding: 0;
+  color: #94a3b8;
+  background: transparent;
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: color var(--transition-fast), background-color var(--transition-fast);
+}
+
+.register__pw-toggle:hover {
+  color: #64748b;
+  background: rgba(148, 163, 184, 0.12);
+}
+
+.register__pw-toggle:focus-visible {
+  outline: 2px solid rgba(124, 58, 237, 0.5);
+  outline-offset: 2px;
+}
+
+.register__submit {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  width: 100%;
+  margin-top: var(--space-2);
+  padding: var(--space-4) var(--space-6);
+  font-family: inherit;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  color: #faf5ff;
+  border: none;
+  border-radius: var(--radius-lg);
+  cursor: pointer;
+  background: linear-gradient(90deg, #7c3aed 0%, #8b5cf6 50%, #6366f1 100%);
+  box-shadow: 0 10px 28px rgba(124, 58, 237, 0.38);
+  transition: transform 0.2s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.25s ease, filter 0.25s ease;
+}
+
+.register__submit:hover {
+  filter: brightness(1.06);
+  box-shadow: 0 14px 36px rgba(124, 58, 237, 0.48);
+  transform: translateY(-1px);
+}
+
+.register__submit:active {
+  transform: translateY(0);
+}
+
+.register__terms {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  margin-top: var(--space-1);
+  font-size: var(--font-size-xs);
+  line-height: var(--line-height-relaxed);
+  color: #475569;
+  cursor: pointer;
+  user-select: none;
+}
+
+.register__terms input {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+  margin: 0;
+  pointer-events: none;
+}
+
+.register__terms-box {
+  position: relative;
+  flex-shrink: 0;
+  width: 1.125rem;
+  height: 1.125rem;
+  margin-top: 0.15rem;
+  border-radius: 4px;
+  border: 1px solid #cbd5e1;
+  background: #fff;
+  transition: border-color var(--transition-fast), background var(--transition-fast),
+    box-shadow var(--transition-fast);
+}
+
+.register__terms input:focus-visible + .register__terms-box {
+  outline: 2px solid rgba(124, 58, 237, 0.45);
+  outline-offset: 2px;
+}
+
+.register__terms input:checked + .register__terms-box {
+  border-color: #7c3aed;
+  background: linear-gradient(135deg, #7c3aed, #8b5cf6);
+}
+
+.register__terms input:checked + .register__terms-box::after {
+  content: "✓";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -52%);
+  font-size: 0.625rem;
+  font-weight: var(--font-weight-bold);
+  color: #fff;
+  line-height: 1;
+}
+
+.register__terms-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.register__inline-link {
+  color: #2563eb;
+  font-weight: var(--font-weight-medium);
+  text-decoration: none;
+}
+
+.register__inline-link:hover {
+  text-decoration: underline;
+}
+
+.register__divider {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  margin: var(--space-6) 0 var(--space-4);
+  font-size: var(--font-size-xs);
+  color: #94a3b8;
+  text-align: center;
+}
+
+.register__divider::before,
+.register__divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(148, 163, 184, 0.55),
+    transparent
+  );
+}
+
+.register__divider span {
+  flex-shrink: 0;
+}
+
+.register__social {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-3);
+}
+
+.register__social-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-4);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  text-decoration: none;
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(226, 232, 240, 0.95);
+  background: #fff;
+  color: #334155;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+  transition: background-color var(--transition-base), border-color var(--transition-base),
+    transform 0.2s ease, box-shadow var(--transition-base);
+}
+
+.register__social-btn:hover {
+  background: #fafafa;
+  border-color: #e2e8f0;
+  box-shadow: var(--shadow-sm);
+  transform: translateY(-1px);
+}
+
+.register__social-btn:focus-visible {
+  outline: 2px solid rgba(124, 58, 237, 0.45);
+  outline-offset: 2px;
+}
+
+.register__social-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-sm);
+}
+
+.register__social-icon--google {
+  background: #fff;
+  color: #ea4335;
+  border: 1px solid #e8ecf1;
+  font-family: inherit;
+}
+
+.register__social-icon--facebook {
+  background: #fff;
+  color: #1877f2;
+  border: 1px solid #e8ecf1;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.register__footer {
+  margin: var(--space-6) 0 0;
+  font-size: var(--font-size-sm);
+  text-align: center;
+  color: #64748b;
+}
+
+.register__signin {
+  color: #2563eb;
+  font-weight: var(--font-weight-semibold);
+  text-decoration: none;
+  margin-left: 0.25rem;
+}
+
+.register__signin:hover {
+  text-decoration: underline;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .register__submit,
+  .register__social-btn {
+    transition: none;
+  }
+
+  .register__submit:hover,
+  .register__social-btn:hover {
+    transform: none;
+  }
+}

@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Đăng ký tài khoản — Portfolio"
+    />
+    <title>Đăng ký — Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../styles/main.css" />
+  </head>
+  <body class="page page--register">
+    <div class="register__bg" aria-hidden="true">
+      <div class="register__bg-frame">
+        <img
+          class="register__bg-img"
+          src="../assets/images/register-winter-bg.png"
+          alt=""
+          width="1920"
+          height="1080"
+          decoding="async"
+          fetchpriority="high"
+        />
+      </div>
+    </div>
+
+    <header class="header header--home register__header">
+      <div class="container header__inner">
+        <nav class="navbar" aria-label="Primary">
+          <input
+            type="checkbox"
+            class="navbar__toggle"
+            id="navbar-toggle"
+          />
+          <div class="navbar__left">
+            <a class="navbar__logo" href="home.html">Portfolio</a>
+          </div>
+          <div class="navbar__center">
+            <ul class="navbar__list">
+              <li class="navbar__item">
+                <a class="navbar__link" href="#">Thông tin cá nhân</a>
+              </li>
+              <li class="navbar__item">
+                <a class="navbar__link" href="#">Tìm ứng viên</a>
+              </li>
+              <li class="navbar__item">
+                <a class="navbar__link" href="#">Mẫu portfolio</a>
+              </li>
+            </ul>
+          </div>
+          <div class="navbar__right">
+            <div class="navbar__auth" data-navbar-auth>
+              <a class="btn btn--ghost navbar__auth-btn" href="login.html"
+                >Đăng nhập</a
+              >
+              <a class="btn btn--primary navbar__auth-btn" href="register.html"
+                >Đăng ký</a
+              >
+            </div>
+            <div class="navbar__account" data-navbar-user-wrap hidden>
+              <div class="navbar__user" data-navbar-user>
+                <button
+                  type="button"
+                  class="navbar__user-trigger"
+                  id="user-menu-button"
+                  aria-expanded="false"
+                  aria-haspopup="true"
+                  aria-controls="user-menu-dropdown"
+                >
+                  <img
+                    class="navbar__avatar"
+                    src=""
+                    alt=""
+                    width="32"
+                    height="32"
+                  />
+                  <span class="navbar__user-name"></span>
+                  <span class="navbar__user-chevron" aria-hidden="true"></span>
+                </button>
+                <ul
+                  class="navbar__dropdown"
+                  id="user-menu-dropdown"
+                  role="menu"
+                  aria-labelledby="user-menu-button"
+                  aria-hidden="true"
+                >
+                  <li class="navbar__dropdown-item" role="none">
+                    <a class="navbar__dropdown-link" href="#" role="menuitem"
+                      >Thông tin cá nhân</a
+                    >
+                  </li>
+                  <li class="navbar__dropdown-item" role="none">
+                    <a class="navbar__dropdown-link" href="#" role="menuitem"
+                      >Đăng xuất</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <label class="navbar__toggle-label" for="navbar-toggle"
+              >Menu</label
+            >
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <main class="page__main register__main">
+      <section class="register" aria-labelledby="register-title">
+        <div class="register__card">
+          <div class="register__avatar" aria-hidden="true">
+            <svg
+              class="register__avatar-icon"
+              xmlns="http://www.w3.org/2000/svg"
+              width="26"
+              height="26"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.75"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+              <circle cx="9" cy="7" r="4" />
+              <line x1="19" y1="8" x2="19" y2="14" />
+              <line x1="22" y1="11" x2="16" y2="11" />
+            </svg>
+          </div>
+          <h1 class="register__title" id="register-title">Đăng Ký</h1>
+          <p class="register__sub">Tạo tài khoản mới của bạn</p>
+
+          <form class="register__form" action="#" method="post">
+            <div class="register__field">
+              <span class="register__field-icon" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              </span>
+              <input
+                class="register__input"
+                type="text"
+                name="full_name"
+                id="register-name"
+                placeholder="Họ và tên"
+                autocomplete="name"
+                required
+              />
+            </div>
+
+            <div class="register__field">
+              <span class="register__field-icon" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              </span>
+              <input
+                class="register__input"
+                type="email"
+                name="email"
+                id="register-email"
+                placeholder="Email"
+                autocomplete="email"
+                required
+              />
+            </div>
+
+            <div class="register__field">
+              <span class="register__field-icon" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              </span>
+              <input
+                class="register__input"
+                type="tel"
+                name="phone"
+                id="register-phone"
+                placeholder="Số điện thoại"
+                autocomplete="tel"
+                required
+              />
+            </div>
+
+            <div class="register__field">
+              <span class="register__field-icon" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+              </span>
+              <input
+                class="register__input register__input--password"
+                type="password"
+                name="password"
+                id="register-password"
+                placeholder="Mật khẩu"
+                autocomplete="new-password"
+                required
+              />
+              <button
+                type="button"
+                class="register__pw-toggle"
+                id="register-password-toggle"
+                aria-label="Hiện mật khẩu"
+                aria-pressed="false"
+                aria-controls="register-password"
+              >
+                <span class="register__pw-toggle-show" aria-hidden="true">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                </span>
+                <span class="register__pw-toggle-hide" hidden aria-hidden="true">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></svg>
+                </span>
+              </button>
+            </div>
+
+            <div class="register__field">
+              <span class="register__field-icon" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+              </span>
+              <input
+                class="register__input"
+                type="password"
+                name="password_confirm"
+                id="register-password-confirm"
+                placeholder="Xác nhận mật khẩu"
+                autocomplete="new-password"
+                required
+              />
+            </div>
+
+            <label class="register__terms">
+              <input type="checkbox" name="terms" value="1" required />
+              <span class="register__terms-box" aria-hidden="true"></span>
+              <span class="register__terms-text">
+                Tôi đồng ý với
+                <a class="register__inline-link" href="#">Điều khoản dịch vụ</a>
+                và
+                <a class="register__inline-link" href="#">Chính sách bảo mật</a>
+              </span>
+            </label>
+
+            <button class="register__submit" type="submit">
+              <span>Đăng Ký</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </button>
+          </form>
+
+          <p class="register__divider">
+            <span>Hoặc đăng ký với</span>
+          </p>
+
+          <div class="register__social">
+            <a class="register__social-btn register__social-btn--google" href="#" aria-label="Đăng ký với Google">
+              <span class="register__social-icon register__social-icon--google" aria-hidden="true">G</span>
+              Google
+            </a>
+            <a class="register__social-btn register__social-btn--facebook" href="#" aria-label="Đăng ký với Facebook">
+              <span class="register__social-icon register__social-icon--facebook" aria-hidden="true">f</span>
+              Facebook
+            </a>
+          </div>
+
+          <p class="register__footer">
+            Đã có tài khoản?
+            <a class="register__signin" href="login.html">Đăng nhập ngay</a>
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <script src="../scripts/home.js" defer></script>
+    <script src="../scripts/register.js" defer></script>
+  </body>
+</html>
