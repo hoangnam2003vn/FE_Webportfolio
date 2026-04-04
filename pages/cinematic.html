@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Mẫu portfolio giao diện tối cinematic — Thịnh.Dev."
+    />
+    <title>Mẫu Portfolio Giao Diện Tối - Cinematic</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../styles/main.css" />
+    <link rel="stylesheet" href="../styles/pages/cinematic.css" />
+  </head>
+  <body class="page page--cinematic">
+    <header class="cinematic-header">
+      <div class="cinematic-logo">Thịnh.Dev</div>
+      <nav aria-label="Chính">
+        <ul>
+          <li><a href="#hero">Trang chủ</a></li>
+          <li><a href="#about">Về tôi</a></li>
+          <li><a href="#skills">Dự án</a></li>
+          <li><a href="#contact">Liên hệ</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="page__main">
+      <section
+        class="cinematic-hero bg-gradient"
+        id="hero"
+        aria-labelledby="cinematic-hero-name"
+      >
+        <div class="cinematic-hero-content">
+          <span class="cinematic-greeting">Xin chào, tôi là</span>
+          <h1 id="cinematic-hero-name">Nguyễn Đức Thịnh</h1>
+          <p>
+            Sinh viên 20 tuổi tại HUTECH University. Tôi đam mê xây dựng các hệ
+            sinh thái ứng dụng đa nền tảng và sáng tạo các giải pháp công nghệ
+            mang lại giá trị thực tế.
+          </p>
+          <a href="#skills" class="cinematic-btn">
+            Xem Dự Án <i class="fas fa-arrow-right" aria-hidden="true"></i>
+          </a>
+        </div>
+      </section>
+
+      <section class="cinematic-about" id="about" aria-labelledby="about-title">
+        <h2 id="about-title" class="cinematic-about__title">Về tôi</h2>
+        <p class="cinematic-about__text">
+          Tôi tập trung vào backend, Java và trải nghiệm giao diện web/mobile —
+          luôn hướng tới code rõ ràng và sản phẩm có giá trị sử dụng thực tế.
+        </p>
+      </section>
+
+      <section
+        class="cinematic-skills"
+        id="skills"
+        aria-labelledby="skills-title"
+      >
+        <h2 id="skills-title" class="cinematic-section-title">
+          Kỹ Năng Cốt Lõi
+        </h2>
+        <div class="cinematic-grid-3">
+          <div class="cinematic-card">
+            <i class="fab fa-node-js" aria-hidden="true"></i>
+            <h3>Backend Development</h3>
+            <p>
+              Xây dựng kiến trúc server mạnh mẽ và API linh hoạt với Node.js.
+              Tối ưu hóa hiệu suất và quản lý cơ sở dữ liệu hiệu quả.
+            </p>
+          </div>
+          <div class="cinematic-card">
+            <i class="fab fa-java" aria-hidden="true"></i>
+            <h3>Java Core &amp; App</h3>
+            <p>
+              Nền tảng vững chắc với Java. Ứng dụng tư duy logic để giải quyết
+              các bài toán phức tạp và phát triển phần mềm độc lập.
+            </p>
+          </div>
+          <div class="cinematic-card">
+            <i class="fas fa-mobile-alt" aria-hidden="true"></i>
+            <h3>Web &amp; Mobile UI</h3>
+            <p>
+              Thiết kế giao diện người dùng trực quan, tập trung vào nhịp độ và
+              cảm xúc hình ảnh, mang lại trải nghiệm mượt mà trên mọi thiết bị.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="cinematic-footer" id="contact">
+      <p>
+        &copy; 2026 Template được tạo cho dự án Hệ thống Portfolio. Coded by
+        Thịnh.
+      </p>
+      <p class="cinematic-footer__back">
+        <a href="home.html">← Về trang chủ Webportfolio</a>
+      </p>
+    </footer>
+
+    <script src="../scripts/cinematic.js" defer></script>
+  </body>
+</html>
