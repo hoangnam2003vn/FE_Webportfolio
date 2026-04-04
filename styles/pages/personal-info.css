@@ -1,0 +1,352 @@
+/**
+ * Trang Thông tin cá nhân — Portfolio
+ * Hero nền + overlay, layout 2 cột, responsive.
+ */
+
+/* -------------------------------------------------------------------------- */
+/* Biến cục bộ trang                                                         */
+/* -------------------------------------------------------------------------- */
+.page--personal {
+  --pi-header-h: 4rem;
+  --pi-active-bg: #fef9e7;
+  --pi-btn-dark: #333333;
+  --pi-sidebar-bg: rgba(255, 255, 255, 0.88);
+  --pi-card-bg: #ffffff;
+  --pi-overlay: rgba(15, 23, 42, 0.45);
+  --pi-radius: 16px;
+  --pi-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+  --pi-transition: 0.25s ease;
+  font-family: "Inter", system-ui, -apple-system, sans-serif;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Nền full màn hình + overlay                                               */
+/* -------------------------------------------------------------------------- */
+.page--personal {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  color: #1a1a1a;
+  background-color: #0f172a;
+}
+
+.page--personal__bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  background-image: url("../../assets/hero-pixel-landscape.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.page--personal__overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  background: var(--pi-overlay);
+  pointer-events: none;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Header / Navbar                                                            */
+/* -------------------------------------------------------------------------- */
+.pi-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #ffffff;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06);
+}
+
+.pi-header__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+  min-height: var(--pi-header-h);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.pi-logo {
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: #000;
+  text-decoration: none;
+  transition: opacity var(--pi-transition);
+}
+
+.pi-logo:hover {
+  opacity: 0.75;
+}
+
+.pi-nav {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem 1rem;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.pi-nav__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.5rem 0.9rem;
+  border-radius: 999px;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: #374151;
+  text-decoration: none;
+  transition: background var(--pi-transition), color var(--pi-transition);
+}
+
+.pi-nav__link:hover {
+  background: rgba(0, 0, 0, 0.05);
+  color: #111;
+}
+
+.pi-nav__link--active {
+  background: var(--pi-active-bg);
+  color: #111;
+}
+
+.pi-nav__link--active:hover {
+  background: #fdf3d0;
+}
+
+.pi-btn-logout {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 10px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  font-family: inherit;
+  color: #fff;
+  background: var(--pi-btn-dark);
+  cursor: pointer;
+  transition: background var(--pi-transition), transform var(--pi-transition),
+    box-shadow var(--pi-transition);
+}
+
+.pi-btn-logout:hover {
+  background: #1f1f1f;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+}
+
+.pi-btn-logout:active {
+  transform: scale(0.98);
+}
+
+/* -------------------------------------------------------------------------- */
+/* Vùng nội dung chính                                                        */
+/* -------------------------------------------------------------------------- */
+.pi-main {
+  position: relative;
+  z-index: 2;
+  flex: 1;
+  width: 100%;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 2rem 1.25rem 3rem;
+  display: grid;
+  grid-template-columns: minmax(0, 280px) minmax(0, 1fr);
+  gap: 1.5rem;
+  align-items: start;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Sidebar trái                                                               */
+/* -------------------------------------------------------------------------- */
+.pi-sidebar {
+  background: var(--pi-sidebar-bg);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: var(--pi-radius);
+  padding: 1.75rem 1.5rem;
+  box-shadow: var(--pi-shadow);
+  text-align: center;
+  transition: box-shadow var(--pi-transition), transform var(--pi-transition);
+}
+
+.pi-sidebar:hover {
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.16);
+}
+
+.pi-sidebar__title {
+  margin: 0 0 1.25rem;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #111;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.pi-avatar-wrap {
+  margin: 0 auto 1rem;
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  padding: 4px;
+  background: linear-gradient(135deg, #93c5fd 0%, #6ee7b7 50%, #fcd34d 100%);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.pi-avatar {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  background: #e5e7eb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid #fff;
+  overflow: hidden;
+}
+
+.pi-avatar i {
+  font-size: 3.5rem;
+  color: #9ca3af;
+}
+
+.pi-sidebar__name {
+  margin: 0 0 1.25rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #111;
+}
+
+.pi-sidebar__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  width: 100%;
+  padding: 0.6rem 0.75rem;
+  border: none;
+  border-radius: 10px;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  font-family: inherit;
+  color: #fff;
+  background: var(--pi-btn-dark);
+  cursor: pointer;
+  text-decoration: none;
+  box-sizing: border-box;
+  transition: background var(--pi-transition), transform var(--pi-transition);
+}
+
+.pi-sidebar__btn:hover {
+  background: #1f1f1f;
+}
+
+.pi-sidebar__btn:active {
+  transform: scale(0.98);
+}
+
+/* -------------------------------------------------------------------------- */
+/* Card thông tin bên phải                                                    */
+/* -------------------------------------------------------------------------- */
+.pi-card {
+  background: var(--pi-card-bg);
+  border-radius: var(--pi-radius);
+  padding: 1.75rem 2rem;
+  box-shadow: var(--pi-shadow);
+  transition: box-shadow var(--pi-transition), transform var(--pi-transition);
+}
+
+.pi-card:hover {
+  box-shadow: 0 14px 48px rgba(0, 0, 0, 0.14);
+}
+
+.pi-card__heading {
+  margin: 0 0 1.5rem;
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #111;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.pi-dl {
+  margin: 0;
+  display: grid;
+  gap: 1rem;
+}
+
+.pi-dl__row {
+  display: grid;
+  grid-template-columns: minmax(0, 160px) 1fr;
+  gap: 0.75rem 1rem;
+  align-items: baseline;
+}
+
+.pi-dl__term {
+  margin: 0;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #6b7280;
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.pi-dl__term i {
+  width: 1.1rem;
+  text-align: center;
+  color: #9ca3af;
+}
+
+.pi-dl__desc {
+  margin: 0;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: #111;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Responsive — xếp cột dọc trên mobile                                       */
+/* -------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+  .pi-main {
+    grid-template-columns: 1fr;
+  }
+
+  .pi-dl__row {
+    grid-template-columns: 1fr;
+    gap: 0.25rem;
+  }
+
+  .page--personal__bg {
+    background-attachment: scroll;
+  }
+}
+
+@media (max-width: 480px) {
+  .pi-header__inner {
+    padding: 0.75rem 1rem;
+  }
+
+  .pi-nav {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .pi-card {
+    padding: 1.25rem 1.25rem;
+  }
+}
