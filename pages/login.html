@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Đăng nhập — Portfolio"
+    />
+    <title>Đăng nhập — Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../styles/main.css" />
+  </head>
+  <body class="page page--login">
+    <div class="login__bg" aria-hidden="true">
+      <img
+        class="login__bg-img"
+        src="../assets/images/login-pixel-bg.png"
+        alt=""
+        width="1920"
+        height="1080"
+        decoding="async"
+        fetchpriority="high"
+      />
+    </div>
+
+    <header class="header header--home login__header">
+      <div class="container header__inner">
+        <nav class="navbar" aria-label="Primary">
+          <input
+            type="checkbox"
+            class="navbar__toggle"
+            id="navbar-toggle"
+          />
+          <div class="navbar__left">
+            <a class="navbar__logo" href="home.html">Portfolio</a>
+          </div>
+          <div class="navbar__center">
+            <ul class="navbar__list">
+              <li class="navbar__item">
+                <a class="navbar__link" href="#">Thông tin cá nhân</a>
+              </li>
+              <li class="navbar__item">
+                <a class="navbar__link" href="#">Tìm ứng viên</a>
+              </li>
+              <li class="navbar__item">
+                <a class="navbar__link" href="#">Mẫu portfolio</a>
+              </li>
+            </ul>
+          </div>
+          <div class="navbar__right">
+            <div class="navbar__auth" data-navbar-auth>
+              <a class="btn btn--ghost navbar__auth-btn" href="login.html"
+                >Đăng nhập</a
+              >
+              <a class="btn btn--primary navbar__auth-btn" href="#"
+                >Đăng ký</a
+              >
+            </div>
+            <div class="navbar__account" data-navbar-user-wrap hidden>
+              <div class="navbar__user" data-navbar-user>
+                <button
+                  type="button"
+                  class="navbar__user-trigger"
+                  id="user-menu-button"
+                  aria-expanded="false"
+                  aria-haspopup="true"
+                  aria-controls="user-menu-dropdown"
+                >
+                  <img
+                    class="navbar__avatar"
+                    src=""
+                    alt=""
+                    width="32"
+                    height="32"
+                  />
+                  <span class="navbar__user-name"></span>
+                  <span class="navbar__user-chevron" aria-hidden="true"></span>
+                </button>
+                <ul
+                  class="navbar__dropdown"
+                  id="user-menu-dropdown"
+                  role="menu"
+                  aria-labelledby="user-menu-button"
+                  aria-hidden="true"
+                >
+                  <li class="navbar__dropdown-item" role="none">
+                    <a class="navbar__dropdown-link" href="#" role="menuitem"
+                      >Thông tin cá nhân</a
+                    >
+                  </li>
+                  <li class="navbar__dropdown-item" role="none">
+                    <a class="navbar__dropdown-link" href="#" role="menuitem"
+                      >Đăng xuất</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <label class="navbar__toggle-label" for="navbar-toggle"
+              >Menu</label
+            >
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <main class="page__main login__main">
+      <section class="login" aria-labelledby="login-title">
+        <div class="login__card">
+          <div class="login__avatar" aria-hidden="true">
+            <svg
+              class="login__avatar-icon"
+              xmlns="http://www.w3.org/2000/svg"
+              width="28"
+              height="28"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.75"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" />
+              <circle cx="12" cy="7" r="4" />
+            </svg>
+          </div>
+          <h1 class="login__title" id="login-title">Đăng Nhập</h1>
+          <p class="login__sub">Chào mừng bạn trở lại!</p>
+
+          <form class="login__form" action="#" method="post">
+            <div class="login__field">
+              <span class="login__field-icon" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              </span>
+              <input
+                class="login__input"
+                type="email"
+                name="email"
+                id="login-email"
+                placeholder="Email"
+                autocomplete="email"
+                required
+              />
+            </div>
+
+            <div class="login__field">
+              <span class="login__field-icon" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+              </span>
+              <input
+                class="login__input login__input--password"
+                type="password"
+                name="password"
+                id="login-password"
+                placeholder="Mật khẩu"
+                autocomplete="current-password"
+                required
+              />
+              <button
+                type="button"
+                class="login__pw-toggle"
+                id="login-password-toggle"
+                aria-label="Hiện mật khẩu"
+                aria-pressed="false"
+                aria-controls="login-password"
+              >
+                <span class="login__pw-toggle-show" aria-hidden="true">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                </span>
+                <span class="login__pw-toggle-hide" hidden aria-hidden="true">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></svg>
+                </span>
+              </button>
+            </div>
+
+            <button class="login__submit" type="submit">
+              <span>Đăng Nhập</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </button>
+
+            <label class="login__remember">
+              <input type="checkbox" name="remember" value="1" />
+              <span class="login__remember-box" aria-hidden="true"></span>
+              <span>Ghi nhớ đăng nhập</span>
+            </label>
+          </form>
+
+          <p class="login__divider">
+            <span>Hoặc đăng nhập với</span>
+          </p>
+
+          <div class="login__social">
+            <a class="login__social-btn login__social-btn--google" href="#" aria-label="Đăng nhập với Google">
+              <span class="login__social-icon login__social-icon--google" aria-hidden="true">G</span>
+              Google
+            </a>
+            <a class="login__social-btn login__social-btn--facebook" href="#" aria-label="Đăng nhập với Facebook">
+              <span class="login__social-icon login__social-icon--facebook" aria-hidden="true">f</span>
+              Facebook
+            </a>
+          </div>
+
+          <p class="login__footer">
+            Chưa có tài khoản?
+            <a class="login__register" href="#">Đăng ký ngay</a>
+          </p>
+          <p class="login__forgot-wrap">
+            <a class="login__forgot" href="forgot-password.html">Quên mật khẩu?</a>
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <script src="../scripts/home.js" defer></script>
+    <script src="../scripts/login.js" defer></script>
+  </body>
+</html>
