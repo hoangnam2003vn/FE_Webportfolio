@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Thông tin cá nhân — Portfolio."
+    />
+    <title>Thông tin cá nhân — Portfolio</title>
+    <!-- Font Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome (icons) -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="../styles/pages/personal-info.css" />
+  </head>
+  <body class="page page--personal">
+    <!-- Lớp nền ảnh full màn hình -->
+    <div class="page--personal__bg" aria-hidden="true"></div>
+    <!-- Overlay mờ giúp chữ dễ đọc -->
+    <div class="page--personal__overlay" aria-hidden="true"></div>
+
+    <!-- ==================== Header / Navbar ==================== -->
+    <header class="pi-header">
+      <div class="pi-header__inner">
+        <a class="pi-logo" href="../index.html">Portfolio</a>
+        <nav class="pi-nav" aria-label="Điều hướng chính">
+          <a class="pi-nav__link pi-nav__link--active" href="personal-info.html" aria-current="page">
+            <i class="fa-solid fa-user" aria-hidden="true"></i>
+            Thông tin cá nhân
+          </a>
+          <a class="pi-nav__link" href="#">
+            <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+            Tìm ứng viên
+          </a>
+          <a class="pi-nav__link" href="#">
+            <i class="fa-solid fa-layer-group" aria-hidden="true"></i>
+            Mẫu Portfolio
+          </a>
+          <button type="button" class="pi-btn-logout">
+            <i class="fa-solid fa-right-from-bracket" aria-hidden="true"></i>
+            Đăng xuất
+          </button>
+        </nav>
+      </div>
+    </header>
+
+    <!-- ==================== Layout 2 cột ==================== -->
+    <main class="pi-main">
+      <!-- Cột trái: sidebar -->
+      <aside class="pi-sidebar">
+        <h2 class="pi-sidebar__title">
+          <i class="fa-solid fa-id-card" aria-hidden="true"></i>
+          Thông tin cá nhân
+        </h2>
+        <div class="pi-avatar-wrap">
+          <div class="pi-avatar" role="img" aria-label="Ảnh đại diện (placeholder)">
+            <i class="fa-solid fa-user" aria-hidden="true"></i>
+          </div>
+        </div>
+        <p class="pi-sidebar__name">Nguyễn Văn A</p>
+        <a class="pi-sidebar__btn" href="self-description.html">
+          <i class="fa-solid fa-pen-to-square" aria-hidden="true"></i>
+          Thay đổi mô tả bản thân
+        </a>
+      </aside>
+
+      <!-- Cột phải: card chi tiết -->
+      <section class="pi-card" aria-labelledby="card-heading">
+        <h2 id="card-heading" class="pi-card__heading">
+          <i class="fa-solid fa-circle-info" aria-hidden="true"></i>
+          Chi tiết hồ sơ
+        </h2>
+        <dl class="pi-dl">
+          <div class="pi-dl__row">
+            <dt class="pi-dl__term">
+              <i class="fa-solid fa-signature" aria-hidden="true"></i>
+              Họ và tên
+            </dt>
+            <dd class="pi-dl__desc">Nguyễn Văn A</dd>
+          </div>
+          <div class="pi-dl__row">
+            <dt class="pi-dl__term">
+              <i class="fa-solid fa-cake-candles" aria-hidden="true"></i>
+              Ngày sinh
+            </dt>
+            <dd class="pi-dl__desc">22/03/1999</dd>
+          </div>
+          <div class="pi-dl__row">
+            <dt class="pi-dl__term">
+              <i class="fa-solid fa-venus-mars" aria-hidden="true"></i>
+              Giới tính
+            </dt>
+            <dd class="pi-dl__desc">Nam</dd>
+          </div>
+          <div class="pi-dl__row">
+            <dt class="pi-dl__term">
+              <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+              Địa chỉ
+            </dt>
+            <dd class="pi-dl__desc">Quận 9, TP.HCM</dd>
+          </div>
+          <div class="pi-dl__row">
+            <dt class="pi-dl__term">
+              <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+              Email
+            </dt>
+            <dd class="pi-dl__desc">abc@abc.abc</dd>
+          </div>
+          <div class="pi-dl__row">
+            <dt class="pi-dl__term">
+              <i class="fa-solid fa-phone" aria-hidden="true"></i>
+              Số điện thoại
+            </dt>
+            <dd class="pi-dl__desc">0999 888 888</dd>
+          </div>
+        </dl>
+      </section>
+    </main>
+  </body>
+</html>

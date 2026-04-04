@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Chỉnh sửa mô tả bản thân — Portfolio."
+    />
+    <title>Mô tả bản thân — Portfolio</title>
+    <!-- Font Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- Chung: nền hero, overlay, navbar (giống trang thông tin cá nhân) -->
+    <link rel="stylesheet" href="../styles/pages/personal-info.css" />
+    <link rel="stylesheet" href="../styles/pages/self-description.css" />
+  </head>
+  <body class="page page--personal">
+    <div class="page--personal__bg" aria-hidden="true"></div>
+    <div class="page--personal__overlay" aria-hidden="true"></div>
+
+    <!-- ==================== Header / Navbar ==================== -->
+    <header class="pi-header">
+      <div class="pi-header__inner">
+        <a class="pi-logo" href="../index.html">Portfolio</a>
+        <nav class="pi-nav" aria-label="Điều hướng chính">
+          <a
+            class="pi-nav__link pi-nav__link--active"
+            href="personal-info.html"
+            aria-current="page"
+          >
+            <i class="fa-solid fa-user" aria-hidden="true"></i>
+            Thông tin cá nhân
+          </a>
+          <a class="pi-nav__link" href="#">
+            <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+            Tìm ứng viên
+          </a>
+          <a class="pi-nav__link" href="#">
+            <i class="fa-solid fa-layer-group" aria-hidden="true"></i>
+            Mẫu Portfolio
+          </a>
+          <button type="button" class="pi-btn-logout">
+            <i class="fa-solid fa-right-from-bracket" aria-hidden="true"></i>
+            Đăng xuất
+          </button>
+        </nav>
+      </div>
+    </header>
+
+    <!-- ==================== Mô tả bản thân (form) ==================== -->
+    <main class="sd-main">
+      <h1 class="sd-page-title">Mô tả bản thân</h1>
+
+      <form class="sd-form" action="#" method="post">
+        <div class="sd-card">
+          <div class="sd-field">
+            <label class="sd-label" for="sd-title">
+              <i class="fa-solid fa-heading" aria-hidden="true"></i>
+              Tựa đề
+            </label>
+            <input
+              class="sd-input"
+              type="text"
+              id="sd-title"
+              name="title"
+              placeholder="Tóm tắt bản thân"
+              autocomplete="off"
+            />
+          </div>
+          <div class="sd-field">
+            <label class="sd-label" for="sd-body">
+              <i class="fa-solid fa-align-left" aria-hidden="true"></i>
+              Mô tả
+            </label>
+            <textarea
+              class="sd-textarea"
+              id="sd-body"
+              name="description"
+              rows="8"
+              placeholder="Mô tả bản thân"
+            ></textarea>
+          </div>
+        </div>
+
+        <!-- Nút ngoài card: Quay lại | Lưu -->
+        <div class="sd-actions">
+          <a class="sd-btn sd-btn--secondary" href="personal-info.html">
+            <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
+            Quay lại
+          </a>
+          <button type="submit" class="sd-btn">
+            <i class="fa-solid fa-floppy-disk" aria-hidden="true"></i>
+            Lưu thay đổi
+          </button>
+        </div>
+      </form>
+    </main>
+  </body>
+</html>
