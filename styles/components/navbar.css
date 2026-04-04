@@ -1,0 +1,363 @@
+/* ==========================================================================
+   Navbar — logo, menu, có thể mở rộng thêm CTA sau này
+   ========================================================================== */
+
+.navbar__logo {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text);
+  letter-spacing: -0.03em;
+  transition: opacity var(--transition-fast);
+}
+
+.navbar__logo:hover {
+  opacity: 0.85;
+}
+
+.navbar__list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--space-1) var(--space-6);
+}
+
+.navbar__link {
+  position: relative;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-muted);
+  padding-block: var(--space-2);
+  transition: color 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.navbar__link.is-active {
+  color: var(--color-text);
+  font-weight: var(--font-weight-semibold);
+}
+
+.navbar__link.is-active::after {
+  transform: scaleX(1);
+}
+
+.navbar__link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--color-secondary);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--transition-base);
+}
+
+.navbar__link:hover,
+.navbar__link:focus-visible {
+  color: var(--color-text);
+}
+
+.navbar__link:hover {
+  transform: translateY(-1px);
+}
+
+.navbar__link:hover::after,
+.navbar__link:focus-visible::after {
+  transform: scaleX(1);
+}
+
+.navbar__link:focus-visible {
+  outline: none;
+}
+
+/* --- Chưa đăng nhập: Đăng nhập / Đăng ký --- */
+.navbar__item--auth {
+  border-bottom: none;
+}
+
+.navbar__auth {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.navbar__auth-btn {
+  transition: transform 0.22s cubic-bezier(0.22, 1, 0.36, 1),
+    background-color var(--transition-base), color var(--transition-base),
+    border-color var(--transition-base), box-shadow var(--transition-base);
+}
+
+.navbar__auth-btn:hover {
+  transform: scale(1.03);
+}
+
+.navbar__auth-btn:active {
+  transform: scale(0.98);
+}
+
+.navbar__auth .btn--ghost:hover {
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+  background-color: rgba(26, 11, 46, 0.04);
+}
+
+.navbar__auth .btn--primary:hover {
+  filter: brightness(1.08);
+}
+
+/* --- User (đã đăng nhập) + dropdown --- */
+.navbar__item--user {
+  border-bottom: none;
+}
+
+.navbar__user {
+  position: relative;
+}
+
+.navbar__user-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  max-width: 100%;
+  padding: var(--space-1) var(--space-2);
+  margin: 0;
+  font-family: inherit;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text);
+  background: transparent;
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: background-color 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+    color 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.navbar__user-trigger:hover,
+.navbar__user-trigger:focus-visible {
+  background-color: var(--color-bg-subtle);
+  color: var(--color-text);
+}
+
+.navbar__user-trigger:focus-visible {
+  outline: 2px solid var(--color-secondary);
+  outline-offset: 2px;
+}
+
+.navbar__avatar {
+  flex-shrink: 0;
+  width: 2rem;
+  height: 2rem;
+  border-radius: var(--radius-full);
+  object-fit: cover;
+  background-color: var(--color-bg-subtle);
+}
+
+.navbar__user-name {
+  max-width: 10rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-align: left;
+  color: var(--color-text-muted);
+  transition: color 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.navbar__user-trigger:hover .navbar__user-name {
+  color: var(--color-text);
+}
+
+.navbar__user-chevron {
+  flex-shrink: 0;
+  width: 0.5rem;
+  height: 0.5rem;
+  margin-left: var(--space-1);
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: rotate(45deg) translateY(-2px);
+  opacity: 0.65;
+  transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.navbar__user.is-open .navbar__user-chevron {
+  transform: rotate(225deg) translateY(-2px);
+}
+
+.navbar__dropdown {
+  position: absolute;
+  top: calc(100% + var(--space-2));
+  right: 0;
+  z-index: 220;
+  min-width: 12.5rem;
+  padding: var(--space-2) 0;
+  margin: 0;
+  list-style: none;
+  background-color: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  opacity: 0;
+  visibility: hidden;
+  transform: translate3d(0, -6px, 0);
+  transition: opacity 0.22s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.22s cubic-bezier(0.22, 1, 0.36, 1),
+    visibility 0.22s;
+  pointer-events: none;
+}
+
+.navbar__user.is-open .navbar__dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: translate3d(0, 0, 0);
+  pointer-events: auto;
+}
+
+.navbar__dropdown-item {
+  margin: 0;
+}
+
+.navbar__dropdown-link {
+  display: block;
+  padding: var(--space-3) var(--space-5);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-muted);
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.navbar__dropdown-link:hover,
+.navbar__dropdown-link:focus-visible {
+  color: var(--color-text);
+  background-color: var(--color-bg-subtle);
+}
+
+.navbar__dropdown-link:focus-visible {
+  outline: none;
+}
+
+/* Menu mobile: checkbox vẫn focus được (không dùng display:none) */
+.navbar__toggle {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.navbar__toggle-label {
+  display: none;
+  padding: var(--space-2);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+@media (max-width: 47.99rem) {
+  .navbar__toggle-label {
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .navbar__list {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 200;
+    flex-direction: column;
+    align-items: stretch;
+    padding: var(--space-4) var(--container-padding);
+    background-color: var(--color-bg);
+    border-bottom: 1px solid var(--color-border);
+    box-shadow: var(--shadow-md);
+    gap: 0;
+  }
+
+  .navbar__item {
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .navbar__item:last-child {
+    border-bottom: none;
+  }
+
+  .navbar__link {
+    display: block;
+    padding: var(--space-4);
+  }
+
+  .navbar__link::after {
+    display: none;
+  }
+
+  .navbar__item--auth {
+    padding: var(--space-4);
+    border-bottom: none;
+  }
+
+  .navbar__auth {
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--space-3);
+  }
+
+  .navbar__auth-btn {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .navbar__item--user {
+    padding: var(--space-3) var(--space-4);
+    border-bottom: none;
+  }
+
+  .navbar__user-trigger {
+    display: flex;
+    width: 100%;
+    justify-content: flex-start;
+    padding: var(--space-3) var(--space-4);
+  }
+
+  .navbar__user-name {
+    flex: 1;
+    max-width: none;
+  }
+
+  .navbar__dropdown {
+    position: static;
+    margin-top: var(--space-2);
+    margin-left: var(--space-2);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    transform: translate3d(0, -4px, 0);
+  }
+
+  .navbar__user.is-open .navbar__dropdown {
+    transform: translate3d(0, 0, 0);
+  }
+
+  .navbar__toggle:checked ~ .navbar__list {
+    display: flex;
+  }
+
+  /* Neo dropdown theo nav, giữ header sticky */
+  .navbar {
+    position: relative;
+  }
+
+  .navbar__link:hover {
+    transform: none;
+  }
+}

@@ -1,0 +1,87 @@
+/* ==========================================================================
+   Footer — nền tối nhẹ, grid thông tin + social
+   ========================================================================== */
+
+.footer {
+  background-color: var(--color-primary);
+  color: var(--color-text-on-dark);
+  padding-block: var(--space-12) var(--space-8);
+  margin-top: auto;
+}
+
+.footer__inner {
+  display: grid;
+  gap: var(--space-10);
+}
+
+@media (min-width: 48rem) {
+  .footer__inner {
+    grid-template-columns: 1fr auto;
+    align-items: start;
+  }
+}
+
+.footer__brand-name {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  margin-bottom: var(--space-2);
+}
+
+.footer__tagline {
+  font-size: var(--font-size-sm);
+  color: rgba(248, 250, 252, 0.75);
+  max-width: 22rem;
+  line-height: var(--line-height-relaxed);
+}
+
+.footer__meta {
+  font-size: var(--font-size-xs);
+  color: rgba(248, 250, 252, 0.55);
+  margin-top: var(--space-6);
+}
+
+.footer__social {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.footer__social-label {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+}
+
+.footer__social-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+.footer__social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: var(--radius-md);
+  background-color: rgba(255, 255, 255, 0.08);
+  color: var(--color-text-on-dark);
+  transition: background-color var(--transition-base),
+    transform var(--transition-fast);
+}
+
+.footer__social-link:hover,
+.footer__social-link:focus-visible {
+  background-color: rgba(255, 255, 255, 0.18);
+  transform: translateY(-2px);
+}
+
+.footer__social-link:focus-visible {
+  outline: 2px solid var(--color-secondary-muted);
+  outline-offset: 2px;
+}
+
+.footer__social-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+}
