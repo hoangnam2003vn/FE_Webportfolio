@@ -27,7 +27,5 @@
 .header__inner {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: var(--space-6);
   min-height: var(--header-height);
 }

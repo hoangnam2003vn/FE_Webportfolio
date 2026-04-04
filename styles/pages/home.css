@@ -116,6 +116,23 @@
   color: var(--color-primary);
 }
 
+.hero__hint {
+  margin-top: var(--space-6);
+  font-size: var(--font-size-sm);
+}
+
+.hero__hint-link {
+  color: rgba(248, 250, 252, 0.75);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.2s ease;
+}
+
+.hero__hint-link:hover,
+.hero__hint-link:focus-visible {
+  color: #fff;
+}
+
 /* --- Sections chung --- */
 .page__section {
   padding-block: var(--space-16);
