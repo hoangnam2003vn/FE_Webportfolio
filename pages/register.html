@@ -137,7 +137,8 @@
           <h1 class="register__title" id="register-title">Đăng Ký</h1>
           <p class="register__sub">Tạo tài khoản mới của bạn</p>
 
-          <form class="register__form" action="#" method="post">
+          <form class="register__form" action="#" method="post" novalidate>
+            <p id="register-feedback" class="register__feedback" role="alert" aria-live="polite" hidden></p>
             <div class="register__field">
               <span class="register__field-icon" aria-hidden="true">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
@@ -150,6 +151,23 @@
                 placeholder="Họ và tên"
                 autocomplete="name"
                 required
+              />
+            </div>
+
+            <div class="register__field">
+              <span class="register__field-icon" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              </span>
+              <input
+                class="register__input"
+                type="text"
+                name="username"
+                id="register-username"
+                placeholder="Tên đăng nhập"
+                autocomplete="username"
+                required
+                minlength="3"
+                maxlength="32"
               />
             </div>
 
@@ -268,6 +286,7 @@
       </section>
     </main>
 
+    <script src="../scripts/api.js" defer></script>
     <script src="../scripts/home.js" defer></script>
     <script src="../scripts/register.js" defer></script>
   </body>

@@ -133,7 +133,8 @@
           <h1 class="login__title" id="login-title">Đăng Nhập</h1>
           <p class="login__sub">Chào mừng bạn trở lại!</p>
 
-          <form class="login__form" action="#" method="post">
+          <form class="login__form" action="#" method="post" novalidate>
+            <p id="login-feedback" class="login__feedback" role="alert" aria-live="polite" hidden></p>
             <div class="login__field">
               <span class="login__field-icon" aria-hidden="true">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
@@ -217,6 +218,7 @@
       </section>
     </main>
 
+    <script src="../scripts/api.js" defer></script>
     <script src="../scripts/home.js" defer></script>
     <script src="../scripts/login.js" defer></script>
   </body>
