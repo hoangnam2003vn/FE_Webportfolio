@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="vi">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1" />
+		<title>Portfolio của tôi</title>
+		<meta name="description" content="Danh sách Portfolio cá nhân" />
+		<!-- Inter font (matching project) -->
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+		<!-- Tailwind CDN -->
+		<script src="https://cdn.tailwindcss.com"></script>
+		<style>
+			:root { font-family: 'Inter', system-ui, -apple-system, sans-serif; }
+		</style>
+	</head>
+	<body class="antialiased bg-gray-900">
+		<div class="relative min-h-screen">
+			<!-- Header -->
+			<header class="relative z-30">
+				<div class="max-w-7xl mx-auto px-6">
+					<div class="h-16 flex items-center justify-between">
+						<div class="flex-shrink-0">
+							<a href="../index.html" class="text-sm font-bold text-black">Portfolio</a>
+						</div>
+
+						<nav class="absolute left-1/2 transform -translate-x-1/2">
+							<ul class="flex gap-6">
+								<li><a href="personal-info.html" class="text-sm font-medium text-gray-700">Thông tin cá nhân</a></li>
+								<li><a href="#" class="text-sm font-medium text-gray-700">Tìm ứng viên</a></li>
+								<li><a href="#" class="text-sm font-medium text-gray-700">Mẫu Portfolio</a></li>
+							</ul>
+						</nav>
+
+						<div class="flex-shrink-0">
+							<button class="bg-black text-white text-sm font-semibold px-3 py-2 rounded-md">Đăng xuất</button>
+						</div>
+					</div>
+				</div>
+			</header>
+
+			<!-- Hero (uses project image) -->
+			<main class="relative z-20">
+				<div class="relative" style="background-image: url('../assets/images/list.png'); background-size: cover; background-position: center;">
+					<!-- overlay to darken for text readability -->
+					<div class="absolute inset-0 bg-black/45"></div>
+
+					<!-- Create button (top-right) -->
+					<div class="absolute top-6 right-6 z-30">
+						<a href="#" class="inline-block bg-white/90 text-gray-900 px-3 py-2 rounded-lg border border-white/60 shadow">Tạo Portfolio mới</a>
+					</div>
+
+					<!-- Center content -->
+					<div class="relative z-30 min-h-[60vh] flex flex-col items-center justify-center px-6 py-20">
+						<h1 class="text-white text-4xl md:text-5xl font-extrabold text-center">Portfolio của tôi</h1>
+
+						<form class="mt-8 w-full flex justify-center" role="search" action="#">
+							<div class="relative w-full max-w-3xl">
+								<span class="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400">
+									<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M12.9 14.32a8 8 0 111.414-1.414l4.387 4.387a1 1 0 01-1.414 1.414l-4.387-4.387zM14 8a6 6 0 11-12 0 6 6 0 0112 0z" clip-rule="evenodd"/></svg>
+								</span>
+								<input type="search" name="q" id="q" placeholder="Tìm kiếm" class="w-full rounded-full pl-14 pr-6 py-3 bg-white text-gray-800 placeholder-gray-400 shadow-lg focus:outline-none focus:ring-2 focus:ring-white/60" />
+							</div>
+						</form>
+					</div>
+				</div>
+			</main>
+		</div>
+	</body>
+</html>
+
