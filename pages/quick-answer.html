@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Trả lời các câu hỏi trắc nghiệm để kiểm tra kiến thức của bạn.">
+    <title>Trả Lời Câu Hỏi Nhanh - Portfolio</title>
+    <!-- Font: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- CSS -->
+    <link rel="stylesheet" href="../styles/pages/quick-answer.css">
+</head>
+<body>
+    <!-- ==================== Header / Navbar ==================== -->
+    <header>
+        <div class="header__inner">
+            <nav class="navbar">
+                <a class="navbar__logo" href="../index.html">Portfolio</a>
+                <input type="checkbox" class="navbar__toggle" id="navbar-toggle">
+                <ul class="navbar__list">
+                    <li class="navbar__item">
+                        <a href="#">Thông tin cá nhân</a>
+                    </li>
+                    <li class="navbar__item">
+                        <a href="#">Tìm ứng viên</a>
+                    </li>
+                    <li class="navbar__item">
+                        <a href="quick-answer.html" class="active">Trả lời nhanh</a>
+                    </li>
+                </ul>
+                <label class="navbar__toggle-label" for="navbar-toggle">☰</label>
+                <div class="navbar__auth">
+                    <a href="login.html" class="login">Đăng nhập</a>
+                    <a href="register.html" class="register">Đăng ký</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <div class="container">
+            <div class="page-title">
+                <h1>Trả Lời Câu Hỏi Nhanh</h1>
+                <p>Kiểm tra kiến thức của bạn với 5 câu hỏi trắc nghiệm</p>
+            </div>
+
+            <!-- Progress Section -->
+            <div class="progress-section">
+                <div class="progress-info">
+                    <span class="progress-text">Đã trả lời: <span class="progress-number" id="progressCount">0</span>/5 câu</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+            </div>
+
+            <!-- Notification -->
+            <div class="notification" id="notification"></div>
+
+            <!-- Questions Container -->
+            <div class="questions-container" id="questionsContainer"></div>
+
+            <!-- Results Section -->
+            <div class="results-section" id="resultsSection">
+                <div class="results-header">
+                    <div class="results-score" id="scoreDisplay">0/5</div>
+                    <div class="results-title">Kết Quả Của Bạn</div>
+                    <div class="results-subtitle" id="resultMessage"></div>
+                </div>
+                <div id="resultDetails"></div>
+            </div>
+
+            <!-- Button Group -->
+            <div class="button-group">
+                <button class="btn-primary" id="submitBtn" onclick="submitQuiz()">Nộp Bài</button>
+                <button class="btn-secondary" id="retryBtn" onclick="retryQuiz()" style="display: none;">Làm Lại</button>
+            </div>
+        </div>
+    </main>
+
+    <!-- ==================== Footer ==================== -->
+    <footer role="contentinfo">
+        © 2026 Thành Nam
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="../scripts/quick-answer.js"></script>
+</body>
+</html>
