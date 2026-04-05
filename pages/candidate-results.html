@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Kết quả tìm ứng viên — bộ lọc và hồ sơ."
+    />
+    <title>Kết quả tìm ứng viên — Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../styles/pages/candidate-results.css" />
+  </head>
+  <body class="page--candidate-results">
+    <div class="page--candidate-results__bg" aria-hidden="true"></div>
+
+    <header class="cr-header">
+      <div class="cr-header__inner">
+        <a class="cr-logo" href="home.html">Portfolio</a>
+        <nav class="cr-nav" aria-label="Điều hướng chính">
+          <a class="cr-nav__link" href="personal-info.html">Thông tin cá nhân</a>
+          <a class="cr-nav__link cr-nav__link--active" href="candidate-search.html" aria-current="page"
+            >Tìm ứng viên</a
+          >
+          <a class="cr-nav__link" href="cinematic.html">Mẫu Portfolio</a>
+          <button type="button" class="cr-btn-logout">Đăng xuất</button>
+        </nav>
+      </div>
+    </header>
+
+    <main class="cr-main">
+      <div class="cr-modal">
+        <div class="cr-modal__inner">
+          <div class="cr-toolbar">
+            <input
+              class="cr-toolbar__input"
+              type="search"
+              name="filter"
+              placeholder="Bộ lọc"
+              aria-label="Bộ lọc"
+            />
+            <button type="button" class="cr-toolbar__btn">Tìm kiếm</button>
+          </div>
+
+          <div class="cr-status">
+            <p class="cr-status__line">Tìm thấy 1 ứng viên phù hợp</p>
+            <p class="cr-status__line">
+              <span class="cr-status__keyword">Từ khóa:</span> Kinh nghiệm
+            </p>
+          </div>
+
+          <div class="cr-columns">
+            <aside class="cr-filters" aria-labelledby="filter-heading">
+              <h2 class="cr-filters__title" id="filter-heading">BỘ LỌC</h2>
+              <ul class="cr-filters__list">
+                <li class="cr-filters__item">
+                  <input type="checkbox" id="f-exp" checked />
+                  <label for="f-exp">Kinh nghiệm</label>
+                </li>
+                <li class="cr-filters__item">
+                  <input type="checkbox" id="f-salary" />
+                  <label for="f-salary">Mức lương</label>
+                </li>
+                <li class="cr-filters__item">
+                  <input type="checkbox" id="f-loc" />
+                  <label for="f-loc">Nơi làm việc</label>
+                </li>
+                <li class="cr-filters__item" aria-hidden="true">…</li>
+              </ul>
+            </aside>
+
+            <section class="cr-result" aria-label="Hồ sơ ứng viên">
+              <div class="cr-candidate">
+                <div class="cr-candidate__aside">
+                  <img
+                    class="cr-candidate__avatar"
+                    src="../assets/images/image\ 6.png"
+                    alt="Ảnh đại diện ứng viên"
+                    width="150"
+                    height="150"
+                    loading="lazy"
+                  />
+                  <p class="cr-candidate__name">Frieren</p>
+                  <p class="cr-candidate__role">Nghề nghiệp: phiêu lưu</p>
+                </div>
+                <div class="cr-candidate__body">
+                  <p>Sở thích: ngủ, ăn ngủ, học kĩ năng xà lơ</p>
+                  <p>Điểm mạnh: có kinh nghiệm thực chiến, là 1 nhà phiêu lưu lâu năm.</p>
+                  <p>Điểm yếu: ngủ quên thực tại,…</p>
+                  <p>
+                    Là 1 người luôn ham học đặc biệt là học kỹ năng mới, ko dễ đồng cảm nhưng
+                    được dạy là sẽ biết
+                  </p>
+                  <p class="cr-candidate__cta">HỢP ĐỂ TRỞ THÀNH THÀNH VIÊN MỚI</p>
+                </div>
+              </div>
+              <div class="cr-stamp" aria-hidden="true">OK</div>
+            </section>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
