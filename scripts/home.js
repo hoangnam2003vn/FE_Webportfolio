@@ -1,17 +1,8 @@
 /**
- * Home — scroll reveal, navbar blur, auth state, user dropdown, mobile menu
+ * Home — scroll reveal, navbar blur, auth (JWT /api/auth/me), user dropdown, mobile menu
  */
 (function () {
   "use strict";
-
-  /** Đổi true/false để test header đã đăng nhập / chưa đăng nhập */
-  const isLoggedIn = false;
-
-  /** Giả lập user khi đã đăng nhập (thay bằng API sau) */
-  var MOCK_USER = {
-    name: "Nguyen Van A",
-    avatar: "../assets/images/avatar.jpg",
-  };
 
   var docEl = document.documentElement;
   docEl.classList.add("js-animations");
@@ -116,21 +107,34 @@
     });
   });
 
-  function applyAuthState() {
+  function applyAuthVisibility(loggedIn) {
     var authItem = document.querySelector("[data-navbar-auth]");
     var userItem = document.querySelector("[data-navbar-user-wrap]");
     if (!authItem || !userItem) return;
-    authItem.hidden = isLoggedIn;
-    userItem.hidden = !isLoggedIn;
+    authItem.hidden = loggedIn;
+    userItem.hidden = !loggedIn;
   }
 
-  function initMockUser() {
+  function fillUserUI(user) {
     var img = document.querySelector(".navbar__avatar");
     var nameEl = document.querySelector(".navbar__user-name");
     if (!img || !nameEl) return;
-    nameEl.textContent = MOCK_USER.name;
-    img.alt = MOCK_USER.name;
-    img.src = MOCK_USER.avatar;
+    var display =
+      (user.fullName && String(user.fullName).trim()) ||
+      user.username ||
+      user.email ||
+      "Tài khoản";
+    nameEl.textContent = display;
+    img.alt = display;
+    if (user.avatar && String(user.avatar).trim()) {
+      img.src = user.avatar;
+    } else {
+      img.removeAttribute("src");
+      img.src =
+        "https://ui-avatars.com/api/?name=" +
+        encodeURIComponent(display) +
+        "&background=random&size=96";
+    }
     img.onerror = function () {
       img.onerror = null;
       img.src = "https://picsum.photos/seed/useravatar/96/96";
@@ -169,7 +173,14 @@
     });
 
     menu.querySelectorAll(".navbar__dropdown-link").forEach(function (a) {
-      a.addEventListener("click", function () {
+      a.addEventListener("click", function (ev) {
+        var label = (a.textContent || "").trim();
+        if (label.indexOf("Đăng xuất") === 0) {
+          ev.preventDefault();
+          if (typeof PortfolioApi !== "undefined") PortfolioApi.setToken(null);
+          window.location.href = "home.html";
+          return;
+        }
         setOpen(false);
         var toggle = document.getElementById("navbar-toggle");
         if (toggle) toggle.checked = false;
@@ -182,12 +193,42 @@
     if (toggle) toggle.checked = false;
   }
 
-  applyAuthState();
+  function syncAuthFromServer() {
+    if (typeof PortfolioApi === "undefined") {
+      applyAuthVisibility(false);
+      return;
+    }
+    var token = PortfolioApi.getToken();
+    if (!token) {
+      applyAuthVisibility(false);
+      return;
+    }
 
-  if (isLoggedIn) {
-    initMockUser();
-    initUserDropdown();
+    var authEarly = document.querySelector("[data-navbar-auth]");
+    if (authEarly) authEarly.hidden = true;
+
+    PortfolioApi.fetch("/api/auth/me")
+      .then(function (r) {
+        return r.json().then(function (body) {
+          return { ok: r.ok, body: body };
+        });
+      })
+      .then(function (result) {
+        if (!result.ok || !result.body.success) {
+          PortfolioApi.setToken(null);
+          applyAuthVisibility(false);
+          return;
+        }
+        applyAuthVisibility(true);
+        fillUserUI(result.body.data || {});
+        initUserDropdown();
+      })
+      .catch(function () {
+        applyAuthVisibility(false);
+      });
   }
+
+  syncAuthFromServer();
 
   document.querySelectorAll(".navbar__auth-btn").forEach(function (btn) {
     btn.addEventListener("click", closeMobileMenu);
