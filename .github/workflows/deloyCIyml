@@ -1,4 +1,4 @@
-name: CI/CD HTML CSS Project
+name: CI HTML CSS Project
 
 on:
   push:
